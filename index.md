@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Home
+title: Samen Onderweg
 ---
 
 Welkom op de website van Anneke en Margreet Elfrink. 
