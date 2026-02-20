@@ -1,6 +1,1 @@
-nav:
-  - Home: index.md
-  - Over ons: over_ons.md
-  - Visie: visie.md
-  - Contact: contact.md
-  - Events: events.md
+remote_theme: pages-themes/cayman@v0.2.0
