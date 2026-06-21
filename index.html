@@ -168,9 +168,32 @@
       line-height: 1.25;
     }
 
-    /* ─── Wie zijn wij ─────────────────────────────────────────── */
-    #wie { background: var(--bg-alt); }
+    /* ─── Twee kolommen / citaten ──────────────────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 2.5rem;
+    }
 
+    .two-col blockquote {
+      border-left: 3px solid var(--sand);
+      padding-left: 1.5rem;
+      color: var(--dark);
+      font-size: 0.97rem;
+    }
+
+    .two-col blockquote strong {
+      display: block;
+      font-style: normal;
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      color: var(--brown-mid);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ─── Profielkaarten ───────────────────────────────────────── */
     .profiles {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -214,36 +237,6 @@
 
     .profile-body p { font-size: 0.97rem; }
 
-    /* ─── Ontstaan ─────────────────────────────────────────────── */
-    #ontstaan .intro-text {
-      max-width: 68ch;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-top: 2.5rem;
-    }
-
-    .two-col blockquote {
-      border-left: 3px solid var(--sand);
-      padding-left: 1.5rem;
-      color: var(--dark);
-      font-style: italic;
-      font-size: 0.97rem;
-    }
-
-    .two-col blockquote strong {
-      display: block;
-      font-style: normal;
-      font-family: var(--font-ui);
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
-      color: var(--brown-mid);
-      margin-bottom: 0.5rem;
-    }
-
     /* ─── Foto galerij ─────────────────────────────────────────── */
     #fotos { background: var(--bg-alt); padding: 4rem 2rem; }
 
@@ -279,18 +272,17 @@
       box-shadow: 0 4px 24px rgba(60,40,20,0.12);
     }
 
-    .experience-block {
-      margin-top: 2rem;
-    }
-
     .experience-block h3 {
       font-size: 1.1rem;
       font-weight: normal;
       color: var(--brown-mid);
       margin-bottom: 0.5rem;
+      margin-top: 2rem;
     }
 
-    .experience-block p { font-size: 0.97rem; margin-bottom: 1.5rem; }
+    .experience-block h3:first-child { margin-top: 0; }
+
+    .experience-block p { font-size: 0.97rem; margin-bottom: 1rem; }
 
     /* ─── Jaargroep ────────────────────────────────────────────── */
     #jaargroep { background: var(--bg-alt); }
@@ -434,6 +426,7 @@
 <nav>
   <a class="logo" href="#home">Samen Onderweg</a>
   <ul>
+    <li><a href="#ontstaan">Ontstaan</a></li>
     <li><a href="#wie">Wie zijn wij</a></li>
     <li><a href="#familieopstellingen">Familieopstellingen</a></li>
     <li><a href="#jaargroep">Jaargroep</a></li>
@@ -454,48 +447,59 @@
   </div>
 </section>
 
+<!-- ─── Ontstaan ─────────────────────────────────────────────────── -->
+<section id="ontstaan">
+  <div class="container-wide">
+    <p class="section-label">Hoe het begon</p>
+    <h2>Ontstaan van Samen Onderweg</h2>
+
+    <div class="two-col" style="margin-top:0">
+      <blockquote>
+        <strong>Anneke</strong>
+        In 2015, tijdens mijn opleiding tot stembevrijder, ben ik begonnen met het geven van jaargroepen stembevrijding. Ik heb dit (en doe dit nog steeds) met veel plezier en toewijding gedaan en ik voelde ook dat ik graag samen een groep wilde begeleiden in plaats van alleen. Bij collega stembevrijders had ik hierover soms een balletje opgegooid en er ontstond niks.<br><br>
+        En toen kwam Margreet.<br><br>
+        Het samen met Margreet begeleiden van groepen geeft veel extra verdieping en verbinding voor de groep en zeker ook voor mezelf. Het samen voorbereiden en ook het evalueren achteraf, de herkenning, de lol, het delen. Dit alles geeft mij veel positieve energie.
+      </blockquote>
+      <blockquote>
+        <strong>Margreet</strong>
+        De samenwerking van Anneke en mij kwam op een mooie manier tot stand. Anneke gaf stembevrijding, dat sprak me zeer aan en vanaf het begin heb ik aan haar workshops en jaargroepen meegedaan. Het heeft me veel gebracht, het uiten op die manier van wat er in mij leeft was helend en fijn.<br><br>
+        Op een gegeven moment had ik een droom waarin Anneke en ik samen werkten. Ik belde Anneke en zij was direct heel enthousiast om haar stembevrijding te combineren met mijn psychosomatiek.<br><br>
+        We hebben de afgelopen jaren samen jaargroepen gegeven. Iedere keer worden we er zelf weer blij van. Het gaat gemakkelijk, we hebben plezier, het stroomt.
+      </blockquote>
+    </div>
+  </div>
+</section>
+
 <!-- ─── Wie zijn wij ────────────────────────────────────────────── -->
-<section id="wie">
+<section id="wie" style="background: var(--bg-alt);">
   <div class="container-wide">
     <p class="section-label">Wie zijn wij</p>
     <h2>Anneke &amp; Margreet</h2>
-    <p style="max-width:62ch">Wij zijn Anneke en Margreet. Onze samenwerking ontstond op een zondagochtend in een mistig weiland — en is sindsdien alleen maar mooier geworden.</p>
 
     <div class="profiles">
       <div class="profile-card">
         <img src="images/foto1.jpg" alt="Anneke" />
         <div class="profile-body">
-          <h3>Anneke Elfrink</h3>
+          <h3>Anneke</h3>
           <p class="role">Stembevrijder</p>
-          <p>In 2016 afgestudeerd als stembevrijder bij Jan Kortie. Anneke houdt van zingen en bewegen — het geeft haar vrijheid, geluk en verbondenheid. Door stembevrijding leerde ze zichzelf beter kennen en haar emoties makkelijker voelen en delen.</p>
-          <p style="margin-top:1rem">In 2015 begon ze met het geven van jaargroepen stembevrijding. Ze voelde al snel dat ze graag <em>samen</em> wilde begeleiden — en toen kwam Margreet.</p>
+          <p>Ik ben Anneke. In 2016 ben ik afgestudeerd als stembevrijder bij Jan Kortie. Ik hou ervan om te zingen en te bewegen. Dit geeft mij een gevoel van vrijheid, geluk en verbondenheid.</p>
+          <p style="margin-top:1rem">Door stembevrijding ben ik mijzelf beter gaan leren kennen, heb ik mijzelf meer leren omarmen en kan ik mijn emoties makkelijker voelen en delen. Ik word er steeds meer vrijer en blijer van.</p>
+          <p style="margin-top:1rem">Ik ging in eerste instantie de opleiding doen puur voor mezelf. Ik had destijds nooit het gevoel te willen gaan werken met groepen. Tijdens een familieweekend is het toch begonnen. Ik stond met Margreet op een zondagochtend in een mistig weiland en begeleidde haar en mezelf in het voelen en het zingen van klanken. Dit was zo'n mooi moment. Het voelde zo één, zo verbonden. Daar is het zaadje geplant.</p>
+          <p style="margin-top:1rem">Langzaam ontstond er een groep. Eerst van alleen bekende mensen, later ook met mensen die mij niet direct kenden. En elke keer is de verbinding weer gauw gelegd. Dat vind ik het mooie van stembevrijding. Maskers vallen af, verbindingen kunnen ontstaan.</p>
         </div>
       </div>
 
       <div class="profile-card">
         <img src="images/foto2.jpg" alt="Margreet" />
         <div class="profile-body">
-          <h3>Margreet Elfrink</h3>
+          <h3>Margreet</h3>
           <p class="role">Psychosomatisch fysiotherapeut</p>
-          <p>In 2016 afgestudeerd als psychosomatisch fysiotherapeut. Margreet is ervaringsdeskundige: haar eigen burn-out bracht haar op het pad van zelfinzicht. Ze werkt graag met het innerlijke kind en onbewuste patronen die in de kindertijd ontstaan.</p>
-          <p style="margin-top:1rem">Na een droom over samenwerken belde ze Anneke — die direct enthousiast was. Zo ontstond Samen Onderweg.</p>
+          <p>Ik ben Margreet. In 2016 ben ik afgestudeerd als psychosomatisch fysiotherapeut. Het is ongelofelijk dat de psyche en het lichaam echt één zijn. Onbewuste processen in de psyche spelen door in ons lichaam en in ons gedrag. Door het gevoel en het gedrag op te merken kunnen we inzicht krijgen in onze onbewuste processen.</p>
+          <p style="margin-top:1rem">Ik ben ervaringsdeskundige. Mijn burn-out bracht aan het licht dat ik niet mezelf op de eerste plaats zette maar de ander. Doen wat ik dacht te moeten en wegcijferen waren mijn gedrag.</p>
+          <p style="margin-top:1rem">In mijn werk als psychosomatisch fysiotherapeut vind ik het zo mooi als er meer bewustzijn komt op de kern, het wezen. Wie ben ik echt en welke automatische patronen en overtuigingen houden me daar vandaan.</p>
+          <p style="margin-top:1rem">Die automatische patronen en overtuigingen ontstaan in de kindertijd. Wie mag je zijn en wie niet. Welke emoties en gedrag zijn welkom en welke niet. Je plek in het gezin, de verwachtingen die er zijn spelen mee. Kinderen betrekken alles op zichzelf en trekken uit moeilijke situaties in het gezin conclusies over zichzelf, de kind-conclusies.</p>
+          <p style="margin-top:1rem">Ik werk graag met het innerlijke kind.</p>
         </div>
-      </div>
-    </div>
-
-    <!-- Ontstaan -->
-    <div style="margin-top:4rem">
-      <p class="section-label">Hoe het begon</p>
-      <h2>Het ontstaan van Samen Onderweg</h2>
-      <div class="two-col">
-        <blockquote>
-          <strong>Anneke</strong>
-          "Het samen met Margreet begeleiden van groepen geeft veel extra verdieping en verbinding — voor de groep en zeker ook voor mezelf. Het samen voorbereiden, evalueren, de herkenning, de lol, het delen. Dit alles geeft mij veel positieve energie."
-        </blockquote>
-        <blockquote>
-          <strong>Margreet</strong>
-          "Iedere keer worden we er zelf weer blij van. Het gaat gemakkelijk, we hebben plezier, het stroomt. Op gegeven moment had ik een droom waarin Anneke en ik samen werkten. Ik belde haar — en zij was direct heel enthousiast."
-        </blockquote>
       </div>
     </div>
   </div>
@@ -521,17 +525,20 @@
 
     <div class="content-grid">
       <div>
-        <p>In familieopstellingen kunnen verschuivingen gemaakt worden waardoor de liefde weer kan gaan stromen. Bijvoorbeeld weer kind kunnen zijn, of je ouders nemen zoals ze zijn — met al hun beperkingen.</p>
-
         <div class="experience-block">
-          <h3>Anneke's ervaring</h3>
-          <p>Al tientallen jaren geïnteresseerd in familieopstellingen, maar altijd te spannend gevonden om mee te doen — totdat ze bij Els Thissen een opstelling onderging. "Zo mooi om te ervaren wat er gezien en gevoeld wil worden. En dat de onderstroom altijd Liefde is. Dat is voor mij zo helend."</p>
+          <h3>Anneke</h3>
+          <p>Al tientallen jaren ben ik geïnteresseerd in familieopstellingen. Ik heb het echter altijd tè spannend gevonden om me aan te melden, ook al zou dat in de rol van representant zijn.</p>
+          <p>Tot Els Thissen via een cursus in wonderen op mijn pad kwam. Bij haar durfde ik me aan te melden en is er een nieuwe wereld voor me open gegaan. Zo mooi om te ervaren wat er gezien en gevoeld wil worden. En dat de onderstroom altijd Liefde is. Dat is voor mij zo helend.</p>
+          <p>De opstellingen die ik als deelnemer heb ondergaan zullen me nog lang bij blijven; het met zó welkom voelen is een hele fijne herinnering/ervaring die ik uit één ervan heb meegenomen. Ook het me gedragen voelen door de moederlijn heeft een diepe en warme indruk op me gemaakt. Hier ben ik heel dankbaar voor.</p>
 
-          <h3>Margreet's ervaring</h3>
-          <p>Margreet's vader overleed toen ze 9 was. In een opstelling stonden haar ouders na een aantal processen naast elkaar. "Dit beeld is nog steeds helend voor mij." Dit motiveerde haar om zelf met opstellingen aan het werk te gaan en ze te integreren in haar psychosomatische therapie.</p>
-
-          <h3>Eigen stijl</h3>
-          <p>Na jarenlang werken met verschillende begeleiders — van Hans van Ameide en Erna Jans tot Els Thissen en Elmer Hendrix — heeft Margreet haar eigen stijl ontwikkeld. Anneke en Margreet doen ook opstellingen in de natuur: bomen en andere symbolen als representanten. "Soms ontstond er in 10 minuten een nieuw beeld, een nieuwe stroom."</p>
+          <h3>Margreet</h3>
+          <p>In familieopstellingen kunnen verschuivingen gemaakt worden waardoor de liefde weer kan gaan stromen. Bijvoorbeeld weer kind kunnen zijn, of je ouders nemen zoals ze zijn met hun beperkingen.</p>
+          <p>Mijn vader is jong overleden aan M.S., een spierziekte. Ik was 9 toen hij overleed. Hij was afwezig, woonde in een verpleeghuis, zat in een rolstoel. In een opstelling stonden mijn ouders na een aantal processen naast elkaar. Dit beeld is nog steeds helend voor mij.</p>
+          <p>Dat verschillende opstellingen mij zo veel gebracht hebben heeft mij gemotiveerd er zelf ook mee aan het werk te gaan. Alles wat mij helpt en bewustzijn brengt komt ook in de psychosomatische therapie terug op mijn werk.</p>
+          <p>Het leren begeleiden van opstellingen is een geleidelijke weg. Individueel ben ik tijdens de burn-out periode door Hans van Ameide behandeld met individuele opstellingen. Bij hem en Erna Jans heb ik een weekend introductie familie opstellingen gedaan.</p>
+          <p>Bij Els Thissen kwam de verwondering nog meer. Zij werkt vanuit de cursus in wonderen en laat de liefde weer stromen waar ruimte is. Met veel humor in het gesprek en met veel wijsheid en liefde in de opstellingen.</p>
+          <p>Bij Elmer Hendrix vond ik een vakman, zijn manier van werken voelt bijna zakelijk. Haarscherp naar de kern. Zijn boeken <em>Zinnen die de ziel raken</em> en <em>TAO en de kunst van familieopstellingen</em> geven veel helderheid.</p>
+          <p>Door dit alles samen heb ik mijn eigen stijl ontwikkeld. In een groep heb ik één keer samen met Anneke de familieopstellingen gegeven. Dit was intens en mooi. Anneke en ik hebben vele opstellingen gedaan samen, meestal in het bos. De bomen, andere symbolen uit de natuur waren onze representanten. Soms ontstond er in 10 minuten een nieuw beeld, een nieuwe stroom.</p>
         </div>
       </div>
 
