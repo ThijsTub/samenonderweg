@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samen Onderweg – Anneke & Margreet</title>
+  <style>
+    /* ─── Reset & base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #faf7f2;
+      --bg-alt:    #f0ebe2;
+      --brown:     #6b5744;
+      --brown-mid: #9e7d60;
+      --sand:      #d4b896;
+      --sage:      #8a9e7a;
+      --dark:      #3d2e22;
+      --light:     #ede4d8;
+      --white:     #ffffff;
+      --font-body: 'Georgia', serif;
+      --font-ui:   'Helvetica Neue', Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--dark);
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    /* ─── Nav ──────────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--brown);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 56px;
+    }
+
+    nav .logo {
+      color: var(--light);
+      font-family: var(--font-ui);
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul a {
+      color: var(--sand);
+      text-decoration: none;
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover { color: var(--white); }
+
+    /* ─── Hero ─────────────────────────────────────────────────── */
+    #home {
+      min-height: 92vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+
+    .hero-text {
+      padding: 5rem 4rem 5rem 6rem;
+    }
+
+    .hero-text .eyebrow {
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1rem;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: normal;
+      color: var(--brown);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      color: var(--dark);
+      max-width: 44ch;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--brown);
+      color: var(--light);
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.75rem 2rem;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+
+    .btn:hover { background: var(--brown-mid); }
+
+    .hero-image {
+      height: 92vh;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* ─── Section base ─────────────────────────────────────────── */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .container-wide {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-size: 2.1rem;
+      font-weight: normal;
+      color: var(--brown);
+      margin-bottom: 2rem;
+      line-height: 1.25;
+    }
+
+    /* ─── Wie zijn wij ─────────────────────────────────────────── */
+    #wie { background: var(--bg-alt); }
+
+    .profiles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .profile-card {
+      background: var(--white);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(60,40,20,0.07);
+    }
+
+    .profile-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .profile-body {
+      padding: 1.75rem 2rem 2rem;
+    }
+
+    .profile-body h3 {
+      font-size: 1.5rem;
+      font-weight: normal;
+      color: var(--brown);
+      margin-bottom: 0.25rem;
+    }
+
+    .profile-body .role {
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1rem;
+    }
+
+    .profile-body p { font-size: 0.97rem; }
+
+    /* ─── Ontstaan ─────────────────────────────────────────────── */
+    #ontstaan .intro-text {
+      max-width: 68ch;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 2.5rem;
+    }
+
+    .two-col blockquote {
+      border-left: 3px solid var(--sand);
+      padding-left: 1.5rem;
+      color: var(--dark);
+      font-style: italic;
+      font-size: 0.97rem;
+    }
+
+    .two-col blockquote strong {
+      display: block;
+      font-style: normal;
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      color: var(--brown-mid);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ─── Foto galerij ─────────────────────────────────────────── */
+    #fotos { background: var(--bg-alt); padding: 4rem 2rem; }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 3px;
+      transition: opacity 0.2s;
+    }
+
+    .gallery img:hover { opacity: 0.88; }
+
+    /* ─── Familieopstellingen ──────────────────────────────────── */
+    #familieopstellingen .content-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 1rem;
+    }
+
+    #familieopstellingen .content-grid img {
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: 0 4px 24px rgba(60,40,20,0.12);
+    }
+
+    .experience-block {
+      margin-top: 2rem;
+    }
+
+    .experience-block h3 {
+      font-size: 1.1rem;
+      font-weight: normal;
+      color: var(--brown-mid);
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-block p { font-size: 0.97rem; margin-bottom: 1.5rem; }
+
+    /* ─── Jaargroep ────────────────────────────────────────────── */
+    #jaargroep { background: var(--bg-alt); }
+
+    .jaargroep-box {
+      background: var(--brown);
+      color: var(--light);
+      border-radius: 6px;
+      padding: 3rem 3.5rem;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .jaargroep-box .eyebrow {
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--sand);
+      margin-bottom: 0.75rem;
+    }
+
+    .jaargroep-box h2 {
+      color: var(--light);
+      margin-bottom: 1.25rem;
+    }
+
+    .jaargroep-box p {
+      color: var(--sand);
+      margin-bottom: 1.75rem;
+      font-size: 0.97rem;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 3rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .detail-item {
+      border-top: 1px solid rgba(212,184,150,0.3);
+      padding-top: 0.75rem;
+    }
+
+    .detail-item .label {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sand);
+      margin-bottom: 0.3rem;
+    }
+
+    .detail-item .value {
+      color: var(--light);
+      font-size: 0.95rem;
+    }
+
+    .dates-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .dates-list li {
+      background: rgba(212,184,150,0.15);
+      border: 1px solid rgba(212,184,150,0.3);
+      border-radius: 2px;
+      padding: 0.2rem 0.7rem;
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      color: var(--light);
+    }
+
+    .jaargroep-box .btn {
+      background: var(--sand);
+      color: var(--dark);
+    }
+
+    .jaargroep-box .btn:hover { background: var(--light); }
+
+    /* ─── Contact ──────────────────────────────────────────────── */
+    #contact { padding: 5rem 2rem 6rem; }
+
+    #contact .container { text-align: center; }
+
+    #contact h2 { margin-bottom: 0.75rem; }
+
+    #contact p {
+      max-width: 50ch;
+      margin: 0 auto 2rem;
+      color: var(--brown-mid);
+    }
+
+    #contact a.email-link {
+      font-family: var(--font-ui);
+      color: var(--brown);
+      font-size: 1.05rem;
+      text-decoration: none;
+      border-bottom: 1px solid var(--sand);
+      padding-bottom: 2px;
+      transition: color 0.2s;
+    }
+
+    #contact a.email-link:hover { color: var(--sage); }
+
+    /* ─── Footer ───────────────────────────────────────────────── */
+    footer {
+      background: var(--brown);
+      color: var(--sand);
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    /* ─── Responsive ───────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      #home { grid-template-columns: 1fr; }
+      .hero-image { display: none; }
+      .hero-text { padding: 4rem 1.5rem; }
+      .hero-text h1 { font-size: 2.2rem; }
+
+      .profiles { grid-template-columns: 1fr; }
+      .two-col { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: 1fr 1fr; }
+      #familieopstellingen .content-grid { grid-template-columns: 1fr; }
+      .details-grid { grid-template-columns: 1fr; }
+      .jaargroep-box { padding: 2rem 1.5rem; }
+
+      nav ul { gap: 1rem; }
+      nav ul a { font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── Navigation ─────────────────────────────────────────────── -->
+<nav>
+  <a class="logo" href="#home">Samen Onderweg</a>
+  <ul>
+    <li><a href="#wie">Wie zijn wij</a></li>
+    <li><a href="#familieopstellingen">Familieopstellingen</a></li>
+    <li><a href="#jaargroep">Jaargroep</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ─── Hero ───────────────────────────────────────────────────── -->
+<section id="home">
+  <div class="hero-text">
+    <p class="eyebrow">Stembevrijding &amp; Psychosomatiek</p>
+    <h1>Samen<br>Onderweg</h1>
+    <p>Anneke en Margreet begeleiden jaargroepen waarin lichaamswerk, stembevrijding en gespreksvoering samenkomen. Een weg naar meer vrijheid, verbinding en bewustzijn.</p>
+    <a href="#jaargroep" class="btn">Bekijk de jaargroep 2026–2027</a>
+  </div>
+  <div class="hero-image">
+    <img src="images/foto4.jpg" alt="Samen Onderweg – sfeerbeeld" />
+  </div>
+</section>
+
+<!-- ─── Wie zijn wij ────────────────────────────────────────────── -->
+<section id="wie">
+  <div class="container-wide">
+    <p class="section-label">Wie zijn wij</p>
+    <h2>Anneke &amp; Margreet</h2>
+    <p style="max-width:62ch">Wij zijn Anneke en Margreet. Onze samenwerking ontstond op een zondagochtend in een mistig weiland — en is sindsdien alleen maar mooier geworden.</p>
+
+    <div class="profiles">
+      <div class="profile-card">
+        <img src="images/foto1.jpg" alt="Anneke" />
+        <div class="profile-body">
+          <h3>Anneke Elfrink</h3>
+          <p class="role">Stembevrijder</p>
+          <p>In 2016 afgestudeerd als stembevrijder bij Jan Kortie. Anneke houdt van zingen en bewegen — het geeft haar vrijheid, geluk en verbondenheid. Door stembevrijding leerde ze zichzelf beter kennen en haar emoties makkelijker voelen en delen.</p>
+          <p style="margin-top:1rem">In 2015 begon ze met het geven van jaargroepen stembevrijding. Ze voelde al snel dat ze graag <em>samen</em> wilde begeleiden — en toen kwam Margreet.</p>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <img src="images/foto2.jpg" alt="Margreet" />
+        <div class="profile-body">
+          <h3>Margreet Elfrink</h3>
+          <p class="role">Psychosomatisch fysiotherapeut</p>
+          <p>In 2016 afgestudeerd als psychosomatisch fysiotherapeut. Margreet is ervaringsdeskundige: haar eigen burn-out bracht haar op het pad van zelfinzicht. Ze werkt graag met het innerlijke kind en onbewuste patronen die in de kindertijd ontstaan.</p>
+          <p style="margin-top:1rem">Na een droom over samenwerken belde ze Anneke — die direct enthousiast was. Zo ontstond Samen Onderweg.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ontstaan -->
+    <div style="margin-top:4rem">
+      <p class="section-label">Hoe het begon</p>
+      <h2>Het ontstaan van Samen Onderweg</h2>
+      <div class="two-col">
+        <blockquote>
+          <strong>Anneke</strong>
+          "Het samen met Margreet begeleiden van groepen geeft veel extra verdieping en verbinding — voor de groep en zeker ook voor mezelf. Het samen voorbereiden, evalueren, de herkenning, de lol, het delen. Dit alles geeft mij veel positieve energie."
+        </blockquote>
+        <blockquote>
+          <strong>Margreet</strong>
+          "Iedere keer worden we er zelf weer blij van. Het gaat gemakkelijk, we hebben plezier, het stroomt. Op gegeven moment had ik een droom waarin Anneke en ik samen werkten. Ik belde haar — en zij was direct heel enthousiast."
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Foto's ──────────────────────────────────────────────────── -->
+<section id="fotos">
+  <div class="container-wide">
+    <p class="section-label">Impressie</p>
+    <div class="gallery">
+      <img src="images/foto3.jpg" alt="Impressie 1" />
+      <img src="images/foto5.jpg" alt="Impressie 2" />
+      <img src="images/foto6.jpg" alt="Impressie 3" />
+    </div>
+  </div>
+</section>
+
+<!-- ─── Familieopstellingen ─────────────────────────────────────── -->
+<section id="familieopstellingen">
+  <div class="container-wide">
+    <p class="section-label">Werkvorm</p>
+    <h2>Familieopstellingen</h2>
+
+    <div class="content-grid">
+      <div>
+        <p>In familieopstellingen kunnen verschuivingen gemaakt worden waardoor de liefde weer kan gaan stromen. Bijvoorbeeld weer kind kunnen zijn, of je ouders nemen zoals ze zijn — met al hun beperkingen.</p>
+
+        <div class="experience-block">
+          <h3>Anneke's ervaring</h3>
+          <p>Al tientallen jaren geïnteresseerd in familieopstellingen, maar altijd te spannend gevonden om mee te doen — totdat ze bij Els Thissen een opstelling onderging. "Zo mooi om te ervaren wat er gezien en gevoeld wil worden. En dat de onderstroom altijd Liefde is. Dat is voor mij zo helend."</p>
+
+          <h3>Margreet's ervaring</h3>
+          <p>Margreet's vader overleed toen ze 9 was. In een opstelling stonden haar ouders na een aantal processen naast elkaar. "Dit beeld is nog steeds helend voor mij." Dit motiveerde haar om zelf met opstellingen aan het werk te gaan en ze te integreren in haar psychosomatische therapie.</p>
+
+          <h3>Eigen stijl</h3>
+          <p>Na jarenlang werken met verschillende begeleiders — van Hans van Ameide en Erna Jans tot Els Thissen en Elmer Hendrix — heeft Margreet haar eigen stijl ontwikkeld. Anneke en Margreet doen ook opstellingen in de natuur: bomen en andere symbolen als representanten. "Soms ontstond er in 10 minuten een nieuw beeld, een nieuwe stroom."</p>
+        </div>
+      </div>
+
+      <img src="images/foto5.jpg" alt="Familieopstellingen" style="margin-top:0.5rem" />
+    </div>
+  </div>
+</section>
+
+<!-- ─── Jaargroep ───────────────────────────────────────────────── -->
+<section id="jaargroep">
+  <div class="container">
+    <p class="section-label" style="text-align:center; margin-bottom:2rem">Aankomend programma</p>
+    <div class="jaargroep-box">
+      <p class="eyebrow">Jaargroep 2026 – 2027</p>
+      <h2>Samen Onderweg</h2>
+      <p>Met de Latifa (gebed uit het Soefisme) als leidraad gaan we samen onderweg. De thema's zijn: <em>aanvaarden, verlangen, hopen, vertrouwen, loslaten, liefde</em> en <em>bereidheid</em>. We werken met lichaamswerk, stembevrijding en gespreksvoering.</p>
+
+      <div class="details-grid">
+        <div class="detail-item">
+          <p class="label">Wanneer</p>
+          <p class="value">Elke tweede woensdag, sept t/m april — 7 bijeenkomsten</p>
+        </div>
+        <div class="detail-item">
+          <p class="label">Tijd</p>
+          <p class="value">10:00 – 12:00 uur<br><span style="font-size:0.88rem; opacity:0.75">Inloop vanaf 9:45 met koffie/thee</span></p>
+        </div>
+        <div class="detail-item">
+          <p class="label">Locatie</p>
+          <p class="value">IJsclub in Lonneker<br><span style="font-size:0.88rem; opacity:0.75">Spölminkkamp 45</span></p>
+        </div>
+        <div class="detail-item">
+          <p class="label">Kosten</p>
+          <p class="value">€ 240,–</p>
+        </div>
+      </div>
+
+      <p class="label" style="margin-bottom:0.75rem">Data</p>
+      <ul class="dates-list" style="margin-bottom:2.5rem">
+        <li>9 sep</li>
+        <li>14 okt</li>
+        <li>11 nov</li>
+        <li>13 jan</li>
+        <li>10 feb</li>
+        <li>10 mrt</li>
+        <li>14 apr</li>
+        <li style="opacity:0.6">12 mei (reserve)</li>
+      </ul>
+
+      <a href="mailto:margreetenannekedoenhetsamen@gmail.com" class="btn">Aanmelden via e-mail</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Contact ─────────────────────────────────────────────────── -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">Contact</p>
+    <h2>Vragen of aanmelden?</h2>
+    <p>Neem gerust contact op via e-mail. We horen graag van je!</p>
+    <a class="email-link" href="mailto:margreetenannekedoenhetsamen@gmail.com">
+      margreetenannekedoenhetsamen@gmail.com
+    </a>
+  </div>
+</section>
+
+<!-- ─── Footer ──────────────────────────────────────────────────── -->
+<footer>
+  <p>© 2026 Samen Onderweg — Anneke &amp; Margreet Elfrink &nbsp;·&nbsp; <a href="mailto:margreetenannekedoenhetsamen@gmail.com" style="color:var(--sand); text-decoration:none">margreetenannekedoenhetsamen@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
