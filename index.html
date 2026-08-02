@@ -57,7 +57,7 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 2rem;
+      gap: 1.75rem;
     }
 
     nav ul a {
@@ -71,6 +71,28 @@
     }
 
     nav ul a:hover { color: var(--white); }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 32px;
+      height: 32px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .nav-toggle span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: var(--light);
+      border-radius: 2px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
 
     /* ─── Hero ─────────────────────────────────────────────────── */
     #home {
@@ -105,7 +127,15 @@
       font-size: 1.1rem;
       color: var(--dark);
       max-width: 44ch;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-text .actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-top: 0.5rem;
     }
 
     .btn {
@@ -123,6 +153,19 @@
     }
 
     .btn:hover { background: var(--brown-mid); }
+
+    .btn-link {
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      color: var(--brown);
+      text-decoration: none;
+      border-bottom: 1px solid var(--sand);
+      padding-bottom: 2px;
+      transition: color 0.2s;
+    }
+
+    .btn-link:hover { color: var(--sage); }
 
     .hero-image {
       height: 92vh;
@@ -210,9 +253,8 @@
 
     .profile-card img {
       width: 100%;
-      height: 280px;
-      object-fit: cover;
-      object-position: center top;
+      height: auto;
+      display: block;
     }
 
     .profile-body {
@@ -251,6 +293,7 @@
       width: 100%;
       height: 220px;
       object-fit: cover;
+      object-position: center 35%;
       border-radius: 3px;
       transition: opacity 0.2s;
     }
@@ -284,8 +327,13 @@
 
     .experience-block p { font-size: 0.97rem; margin-bottom: 1rem; }
 
-    /* ─── Jaargroep ────────────────────────────────────────────── */
-    #jaargroep { background: var(--bg-alt); }
+    .familieopstellingen-cta {
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+
+    /* ─── Jaargroep / inschrijf-boxen ─────────────────────────────── */
+    #jaargroep, #familieopstellingen-aanmelden { background: var(--bg-alt); }
 
     .jaargroep-box {
       background: var(--brown);
@@ -366,6 +414,42 @@
 
     .jaargroep-box .btn:hover { background: var(--light); }
 
+    /* ─── Reviews ──────────────────────────────────────────────── */
+    #reviews .reviews-group { margin-top: 2.5rem; }
+
+    #reviews .reviews-group h3 {
+      font-size: 1.05rem;
+      font-weight: normal;
+      font-family: var(--font-ui);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--brown-mid);
+      margin-bottom: 1.5rem;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .review-card {
+      background: var(--white);
+      border-radius: 4px;
+      padding: 1.75rem 2rem;
+      box-shadow: 0 2px 16px rgba(60,40,20,0.06);
+      font-size: 0.95rem;
+    }
+
+    .review-card p.quote { margin-bottom: 1rem; }
+
+    .review-card .author {
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      color: var(--sage);
+    }
+
     /* ─── Contact ──────────────────────────────────────────────── */
     #contact { padding: 5rem 2rem 6rem; }
 
@@ -373,20 +457,45 @@
 
     #contact h2 { margin-bottom: 0.75rem; }
 
-    #contact p {
+    #contact > .container > p {
       max-width: 50ch;
-      margin: 0 auto 2rem;
+      margin: 0 auto 2.5rem;
       color: var(--brown-mid);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .contact-card {
+      background: var(--white);
+      border-radius: 4px;
+      padding: 2rem;
+      box-shadow: 0 2px 16px rgba(60,40,20,0.07);
+    }
+
+    .contact-card .label {
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.75rem;
     }
 
     #contact a.email-link {
       font-family: var(--font-ui);
       color: var(--brown);
-      font-size: 1.05rem;
+      font-size: 1rem;
       text-decoration: none;
       border-bottom: 1px solid var(--sand);
       padding-bottom: 2px;
       transition: color 0.2s;
+      word-break: break-word;
     }
 
     #contact a.email-link:hover { color: var(--sage); }
@@ -414,9 +523,44 @@
       #familieopstellingen .content-grid { grid-template-columns: 1fr; }
       .details-grid { grid-template-columns: 1fr; }
       .jaargroep-box { padding: 2rem 1.5rem; }
+      .review-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
 
-      nav ul { gap: 1rem; }
-      nav ul a { font-size: 0.78rem; }
+      /* Hamburger menu */
+      .nav-toggle { display: flex; }
+
+      nav ul {
+        position: absolute;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background: var(--brown);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.25s ease;
+      }
+
+      nav ul.open {
+        max-height: 400px;
+      }
+
+      nav ul li {
+        width: 100%;
+      }
+
+      nav ul a {
+        display: block;
+        padding: 0.9rem 2rem;
+        font-size: 0.85rem;
+        border-top: 1px solid rgba(212,184,150,0.15);
+      }
+
+      .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .nav-toggle.open span:nth-child(2) { opacity: 0; }
+      .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     }
   </style>
 </head>
@@ -425,11 +569,15 @@
 <!-- ─── Navigation ─────────────────────────────────────────────── -->
 <nav>
   <a class="logo" href="#home">Samen Onderweg</a>
-  <ul>
-    <li><a href="#ontstaan">Ontstaan</a></li>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="navMenu">
     <li><a href="#wie">Wie zijn wij</a></li>
+    <li><a href="#ontstaan">Ontstaan</a></li>
     <li><a href="#familieopstellingen">Familieopstellingen</a></li>
     <li><a href="#jaargroep">Jaargroep</a></li>
+    <li><a href="#reviews">Reviews</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -440,10 +588,47 @@
     <p class="eyebrow">Stembevrijding &amp; Psychosomatiek</p>
     <h1>Samen<br>Onderweg</h1>
     <p>Anneke en Margreet begeleiden jaargroepen waarin lichaamswerk, stembevrijding en gespreksvoering samenkomen. Een weg naar meer vrijheid, verbinding en bewustzijn.</p>
-    <a href="#jaargroep" class="btn">Bekijk de jaargroep 2026–2027</a>
+    <p>Daarnaast begeleiden ze familieopstellingen.</p>
+    <div class="actions">
+      <a href="#jaargroep" class="btn">Bekijk de jaargroep 2026–2027</a>
+      <a href="#familieopstellingen" class="btn">Bekijk familieopstellingen</a>
+    </div>
   </div>
   <div class="hero-image">
     <img src="images/foto4.jpg" alt="Samen Onderweg – sfeerbeeld" />
+  </div>
+</section>
+
+<!-- ─── Wie zijn wij ────────────────────────────────────────────── -->
+<section id="wie" style="background: var(--bg-alt);">
+  <div class="container-wide">
+    <p class="section-label">Wie zijn wij</p>
+    <h2>Anneke &amp; Margreet</h2>
+
+    <div class="profiles">
+      <div class="profile-card">
+        <img src="images/anneke-portret.jpg" alt="Anneke" />
+        <div class="profile-body">
+          <h3>Anneke</h3>
+          <p class="role">Stembevrijder</p>
+          <p>Ik ben Anneke. In 2016 ben ik afgestudeerd als stembevrijder bij Jan Kortie. Ik hou ervan om te zingen en te bewegen. Dit geeft mij een gevoel van vrijheid, geluk en verbondenheid.</p>
+          <p style="margin-top:1rem">Door stembevrijding ben ik mijzelf beter gaan leren kennen, heb ik mijzelf meer leren omarmen en kan ik mijn emoties makkelijker voelen en delen. Ik word er steeds vrijer en blijer van, meer weg.</p>
+          <p style="margin-top:1rem">Ik ging de opleiding doen voor mijn eigen ontwikkeling, ik had destijds nooit het gevoel te willen gaan werken met groepen. Tijdens een familieweekend is het toch begonnen. Ik stond met Margreet op een zondagochtend in een mistig weiland en begeleidde haar en mezelf in het voelen en het zingen van klanken. Dit was zo'n mooi moment. Het voelde zo één, zo verbonden. Daar is het zaadje geplant.</p>
+          <p style="margin-top:1rem">Langzaam ontstond er een groep. Eerst van alleen bekende mensen, later ook met mensen die mij niet direct kenden. En elke keer is de verbinding weer gauw gelegd. Dat vind ik het mooie van stembevrijding. Maskers vallen af, verbindingen kunnen ontstaan.</p>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <img src="images/margreet-portret.jpg" alt="Margreet" />
+        <div class="profile-body">
+          <h3>Margreet</h3>
+          <p class="role">Psychosomatisch fysiotherapeut</p>
+          <p>Ik ben Margreet. In 2016 ben ik afgestudeerd als psychosomatisch fysiotherapeut. Het is ongelofelijk dat de psyche en het lichaam echt één zijn. Onbewuste processen in de psyche spelen door in ons lichaam en in ons gedrag. Door het gevoel en het gedrag op te merken kunnen we inzicht krijgen in onze onbewuste processen.</p>
+          <p style="margin-top:1rem">Ik ben ervaringsdeskundige. Mijn burn-out bracht aan het licht dat ik niet mezelf maar de ander op de eerste plaats zette. Ik deed wat ik dacht te moeten doen voor de ander en cijferde mezelf weg.</p>
+          <p style="margin-top:1rem">In mijn werk als psychosomatisch fysiotherapeut vind ik het zo mooi als er meer bewustzijn komt op de kern, het wezen. Wie ben ik echt en welke overtuigingen houden me daar vandaan. Deze overtuigingen ontstaan in de kindertijd. Ik werk graag met het innerlijke kind.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -457,7 +642,7 @@
       <blockquote>
         <strong>Anneke</strong>
         In 2015, tijdens mijn opleiding tot stembevrijder, ben ik begonnen met het geven van jaargroepen stembevrijding. Ik heb dit (en doe dit nog steeds) met veel plezier en toewijding gedaan en ik voelde ook dat ik graag samen een groep wilde begeleiden in plaats van alleen. Bij collega stembevrijders had ik hierover soms een balletje opgegooid en er ontstond niks.<br><br>
-        En toen kwam Margreet.<br><br>
+        En toen kwam Margreet met haar droom.<br><br>
         Het samen met Margreet begeleiden van groepen geeft veel extra verdieping en verbinding voor de groep en zeker ook voor mezelf. Het samen voorbereiden en ook het evalueren achteraf, de herkenning, de lol, het delen. Dit alles geeft mij veel positieve energie.
       </blockquote>
       <blockquote>
@@ -470,48 +655,13 @@
   </div>
 </section>
 
-<!-- ─── Wie zijn wij ────────────────────────────────────────────── -->
-<section id="wie" style="background: var(--bg-alt);">
-  <div class="container-wide">
-    <p class="section-label">Wie zijn wij</p>
-    <h2>Anneke &amp; Margreet</h2>
-
-    <div class="profiles">
-      <div class="profile-card">
-        <img src="images/foto1.jpg" alt="Anneke" />
-        <div class="profile-body">
-          <h3>Anneke</h3>
-          <p class="role">Stembevrijder</p>
-          <p>Ik ben Anneke. In 2016 ben ik afgestudeerd als stembevrijder bij Jan Kortie. Ik hou ervan om te zingen en te bewegen. Dit geeft mij een gevoel van vrijheid, geluk en verbondenheid.</p>
-          <p style="margin-top:1rem">Door stembevrijding ben ik mijzelf beter gaan leren kennen, heb ik mijzelf meer leren omarmen en kan ik mijn emoties makkelijker voelen en delen. Ik word er steeds meer vrijer en blijer van.</p>
-          <p style="margin-top:1rem">Ik ging in eerste instantie de opleiding doen puur voor mezelf. Ik had destijds nooit het gevoel te willen gaan werken met groepen. Tijdens een familieweekend is het toch begonnen. Ik stond met Margreet op een zondagochtend in een mistig weiland en begeleidde haar en mezelf in het voelen en het zingen van klanken. Dit was zo'n mooi moment. Het voelde zo één, zo verbonden. Daar is het zaadje geplant.</p>
-          <p style="margin-top:1rem">Langzaam ontstond er een groep. Eerst van alleen bekende mensen, later ook met mensen die mij niet direct kenden. En elke keer is de verbinding weer gauw gelegd. Dat vind ik het mooie van stembevrijding. Maskers vallen af, verbindingen kunnen ontstaan.</p>
-        </div>
-      </div>
-
-      <div class="profile-card">
-        <img src="images/foto2.jpg" alt="Margreet" />
-        <div class="profile-body">
-          <h3>Margreet</h3>
-          <p class="role">Psychosomatisch fysiotherapeut</p>
-          <p>Ik ben Margreet. In 2016 ben ik afgestudeerd als psychosomatisch fysiotherapeut. Het is ongelofelijk dat de psyche en het lichaam echt één zijn. Onbewuste processen in de psyche spelen door in ons lichaam en in ons gedrag. Door het gevoel en het gedrag op te merken kunnen we inzicht krijgen in onze onbewuste processen.</p>
-          <p style="margin-top:1rem">Ik ben ervaringsdeskundige. Mijn burn-out bracht aan het licht dat ik niet mezelf op de eerste plaats zette maar de ander. Doen wat ik dacht te moeten en wegcijferen waren mijn gedrag.</p>
-          <p style="margin-top:1rem">In mijn werk als psychosomatisch fysiotherapeut vind ik het zo mooi als er meer bewustzijn komt op de kern, het wezen. Wie ben ik echt en welke automatische patronen en overtuigingen houden me daar vandaan.</p>
-          <p style="margin-top:1rem">Die automatische patronen en overtuigingen ontstaan in de kindertijd. Wie mag je zijn en wie niet. Welke emoties en gedrag zijn welkom en welke niet. Je plek in het gezin, de verwachtingen die er zijn spelen mee. Kinderen betrekken alles op zichzelf en trekken uit moeilijke situaties in het gezin conclusies over zichzelf, de kind-conclusies.</p>
-          <p style="margin-top:1rem">Ik werk graag met het innerlijke kind.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ─── Foto's ──────────────────────────────────────────────────── -->
 <section id="fotos">
   <div class="container-wide">
     <p class="section-label">Impressie</p>
     <div class="gallery">
       <img src="images/foto3.jpg" alt="Impressie 1" />
-      <img src="images/foto5.jpg" alt="Impressie 2" />
+      <img src="images/foto2.jpg" alt="Impressie 2" />
       <img src="images/foto6.jpg" alt="Impressie 3" />
     </div>
   </div>
@@ -526,23 +676,26 @@
     <div class="content-grid">
       <div>
         <div class="experience-block">
-          <h3>Anneke</h3>
-          <p>Al tientallen jaren ben ik geïnteresseerd in familieopstellingen. Ik heb het echter altijd tè spannend gevonden om me aan te melden, ook al zou dat in de rol van representant zijn.</p>
-          <p>Tot Els Thissen via een cursus in wonderen op mijn pad kwam. Bij haar durfde ik me aan te melden en is er een nieuwe wereld voor me open gegaan. Zo mooi om te ervaren wat er gezien en gevoeld wil worden. En dat de onderstroom altijd Liefde is. Dat is voor mij zo helend.</p>
-          <p>De opstellingen die ik als deelnemer heb ondergaan zullen me nog lang bij blijven; het met zó welkom voelen is een hele fijne herinnering/ervaring die ik uit één ervan heb meegenomen. Ook het me gedragen voelen door de moederlijn heeft een diepe en warme indruk op me gemaakt. Hier ben ik heel dankbaar voor.</p>
-
           <h3>Margreet</h3>
           <p>In familieopstellingen kunnen verschuivingen gemaakt worden waardoor de liefde weer kan gaan stromen. Bijvoorbeeld weer kind kunnen zijn, of je ouders nemen zoals ze zijn met hun beperkingen.</p>
           <p>Mijn vader is jong overleden aan M.S., een spierziekte. Ik was 9 toen hij overleed. Hij was afwezig, woonde in een verpleeghuis, zat in een rolstoel. In een opstelling stonden mijn ouders na een aantal processen naast elkaar. Dit beeld is nog steeds helend voor mij.</p>
-          <p>Dat verschillende opstellingen mij zo veel gebracht hebben heeft mij gemotiveerd er zelf ook mee aan het werk te gaan. Alles wat mij helpt en bewustzijn brengt komt ook in de psychosomatische therapie terug op mijn werk.</p>
+          <p>Dat verschillende opstellingen mij zo veel gebracht hebben heeft mij gemotiveerd er zelf ook mee aan het werk te gaan. Alles wat mij helpt komt ook in de psf terug.</p>
           <p>Het leren begeleiden van opstellingen is een geleidelijke weg. Individueel ben ik tijdens de burn-out periode door Hans van Ameide behandeld met individuele opstellingen. Bij hem en Erna Jans heb ik een weekend introductie familie opstellingen gedaan.</p>
           <p>Bij Els Thissen kwam de verwondering nog meer. Zij werkt vanuit de cursus in wonderen en laat de liefde weer stromen waar ruimte is. Met veel humor in het gesprek en met veel wijsheid en liefde in de opstellingen.</p>
           <p>Bij Elmer Hendrix vond ik een vakman, zijn manier van werken voelt bijna zakelijk. Haarscherp naar de kern. Zijn boeken <em>Zinnen die de ziel raken</em> en <em>TAO en de kunst van familieopstellingen</em> geven veel helderheid.</p>
-          <p>Door dit alles samen heb ik mijn eigen stijl ontwikkeld. In een groep heb ik één keer samen met Anneke de familieopstellingen gegeven. Dit was intens en mooi. Anneke en ik hebben vele opstellingen gedaan samen, meestal in het bos. De bomen, andere symbolen uit de natuur waren onze representanten. Soms ontstond er in 10 minuten een nieuw beeld, een nieuwe stroom.</p>
+          <p>Door dit alles samen heb ik mijn eigen stijl ontwikkeld. In een groep heb ik één keer samen met Anneke de familieopstellingen gegeven. Dit was intens en mooi. Anneke en ik hebben veel opstellingen met elkaar gedaan.</p>
+
+          <h3>Anneke</h3>
+          <p>Al tientallen jaren ben ik geïnteresseerd in familieopstellingen. Ik heb het echter altijd tè spannend gevonden om me aan te melden, ook al zou dat in de rol van representant zijn.</p>
+          <p>Tot Els Thissen via een cursus in wonderen op mijn pad kwam. Bij haar durfde ik me aan te melden en is er een nieuwe wereld voor me open gegaan. Zo mooi om te ervaren wat er gezien en gevoeld wil worden. En dat de onderstroom altijd Liefde is. Dat is voor mij zo helend.</p>
+          <p>De opstellingen die ik als deelnemer heb ondergaan zullen me nog lang bij blijven; het me zo welkom voelen is een hele fijne herinnering/ervaring die ik uit één ervan heb meegenomen. Ook het me gedragen voelen door de moederlijn heeft een diepe en warme indruk op me gemaakt. Hier ben ik heel dankbaar voor.</p>
+        </div>
+        <div class="familieopstellingen-cta">
+          <a href="#familieopstellingen-aanmelden" class="btn">Bekijk data &amp; aanmelden</a>
         </div>
       </div>
 
-      <img src="images/foto5.jpg" alt="Familieopstellingen" style="margin-top:0.5rem" />
+      <img src="images/foto1.jpg" alt="Familieopstellingen" style="margin-top:0.5rem" />
     </div>
   </div>
 </section>
@@ -592,22 +745,122 @@
   </div>
 </section>
 
+<!-- ─── Familieopstellingen aanmelden ────────────────────────────── -->
+<section id="familieopstellingen-aanmelden">
+  <div class="container">
+    <div class="jaargroep-box">
+      <p class="eyebrow">Familieopstellingen</p>
+      <h2>Workshop familieopstellingen</h2>
+      <p>Een dagdeel waarin we met familieopstellingen aan de slag gaan, begeleid door Margreet en Anneke.</p>
+
+      <div class="details-grid">
+        <div class="detail-item">
+          <p class="label">Wanneer</p>
+          <p class="value">Vrijdag 9 oktober</p>
+        </div>
+        <div class="detail-item">
+          <p class="label">Tijd</p>
+          <p class="value">9:30 – 12:00 uur<br><span style="font-size:0.88rem; opacity:0.75">Inloop vanaf 9:15 met koffie</span></p>
+        </div>
+        <div class="detail-item">
+          <p class="label">Locatie</p>
+          <p class="value">Zwanenhof in Zenderen<br><span style="font-size:0.88rem; opacity:0.75">Zaal Angeluszaal</span></p>
+        </div>
+        <div class="detail-item">
+          <p class="label">Kosten</p>
+          <p class="value">€ 35,– per persoon<br><span style="font-size:0.88rem; opacity:0.75">Groepsgrootte: 12 deelnemers</span></p>
+        </div>
+      </div>
+
+      <a href="mailto:elfrinkfamilieopstellingen@gmail.com" class="btn">Aanmelden via e-mail</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Reviews ─────────────────────────────────────────────────── -->
+<section id="reviews">
+  <div class="container-wide">
+    <p class="section-label">Ervaringen</p>
+    <h2>Wat anderen zeggen</h2>
+
+    <div class="reviews-group">
+      <h3>Jaargroep</h3>
+      <div class="review-grid">
+        <div class="review-card">
+          <p class="quote">"Deelnemen aan de jaargroep vind ik erg fijn en bijzonder. Elke bijeenkomst staat in het teken van één thema, waarvoor Margreet en Anneke verschillende oefeningen voorbereiden. Anneke gebruikt haar ervaringen met stembevrijding en Margreet vanuit haar expertise als psychosomatisch therapeut. Deze variëteit is heel prettig en Anneke en Margreet vullen elkaar daarbij goed aan. De jaargroep helpt me mezelf steeds een beetje beter leren kennen en daar tevreden mee te mogen zijn."</p>
+          <p class="author">— Thelma</p>
+        </div>
+        <div class="review-card">
+          <p class="quote">"Het doet me al jaren goed om mijn valkuilen te er- en herkennen. De vertrouwde veilige sfeer die jullie creëren waardoor wij ons zo prettig voelen is zó goed. De balans tussen zingen en oefeningen doen is prima."</p>
+          <p class="author">— W.</p>
+        </div>
+        <div class="review-card">
+          <p class="quote">"Tijdens de stembevrijding is er ruimte om te voelen, om het hoekje te kijken naar daar waar je liever wegblijft, en dan de ruimte krijgen om dat te delen. Anneke en Margreet weten de veiligheid te creëren waarin dat kan en mag."</p>
+          <p class="author">— Anne-Marie</p>
+        </div>
+        <div class="review-card">
+          <p class="quote">"Klank geven aan wat er in mij leeft, ongemak, vreugde, pijn, verdriet, benauwdheid. Daar uiting aan geven. Zichtbaar worden, in contact komen met je innerlijke werkelijkheid, zo helend. Bewust aandacht geven aan mijn lichaam, voelen wat mijn lichaam mij te vertellen heeft."</p>
+          <p class="author">— Ria</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-group">
+      <h3>Familieopstellingen</h3>
+      <div class="review-grid">
+        <div class="review-card">
+          <p class="quote">"De familieopstellingen die geleid werden door Margreet waren integer, liefdevol en met respect voor het systeem van de deelnemer. Hierdoor ontstond er ruimte voor inzichten en heling."</p>
+          <p class="author">— Anne-Marie</p>
+        </div>
+        <div class="review-card">
+          <p class="quote">"Het is wel spannend om in een groep van nog onbekende vrouwen direct je grootste familie-issues neer te zetten, maar wat is dat verhelderend, mooi en helend! Hoe iedereen direct in de rol komt, en hier ook weer uit stapt is bijzonder. Dankjewel Margreet en Anneke, jullie hebben het bijzonder mooi begeleid."</p>
+          <p class="author">— Elna</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ─── Contact ─────────────────────────────────────────────────── -->
 <section id="contact">
   <div class="container">
     <p class="section-label">Contact</p>
     <h2>Vragen of aanmelden?</h2>
     <p>Neem gerust contact op via e-mail. We horen graag van je!</p>
-    <a class="email-link" href="mailto:margreetenannekedoenhetsamen@gmail.com">
-      margreetenannekedoenhetsamen@gmail.com
-    </a>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <p class="label">Jaargroep</p>
+        <a class="email-link" href="mailto:margreetenannekedoenhetsamen@gmail.com">margreetenannekedoenhetsamen@gmail.com</a>
+      </div>
+      <div class="contact-card">
+        <p class="label">Familieopstellingen</p>
+        <a class="email-link" href="mailto:elfrinkfamilieopstellingen@gmail.com">elfrinkfamilieopstellingen@gmail.com</a>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ─── Footer ──────────────────────────────────────────────────── -->
 <footer>
-  <p>© 2026 Samen Onderweg — Anneke &amp; Margreet Elfrink &nbsp;·&nbsp; <a href="mailto:margreetenannekedoenhetsamen@gmail.com" style="color:var(--sand); text-decoration:none">margreetenannekedoenhetsamen@gmail.com</a></p>
+  <p>© 2026 Samen Onderweg — Anneke &amp; Margreet Elfrink</p>
 </footer>
+
+<script>
+  var navToggle = document.getElementById('navToggle');
+  var navMenu = document.getElementById('navMenu');
+  navToggle.addEventListener('click', function () {
+    var isOpen = navMenu.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  navMenu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      navMenu.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
 
 </body>
 </html>
