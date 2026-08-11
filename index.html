@@ -253,7 +253,9 @@
 
     .profile-card img {
       width: 100%;
-      height: auto;
+      height: 540px;
+      object-fit: cover;
+      object-position: center center;
       display: block;
     }
 
@@ -474,7 +476,7 @@
     .contact-card {
       background: var(--white);
       border-radius: 4px;
-      padding: 2rem;
+      padding: 1.5rem;
       box-shadow: 0 2px 16px rgba(60,40,20,0.07);
     }
 
@@ -490,12 +492,21 @@
     #contact a.email-link {
       font-family: var(--font-ui);
       color: var(--brown);
-      font-size: 1rem;
+      font-size: 0.78rem;
       text-decoration: none;
       border-bottom: 1px solid var(--sand);
       padding-bottom: 2px;
       transition: color 0.2s;
-      word-break: break-word;
+      white-space: nowrap;
+      word-break: normal;
+      overflow-wrap: normal;
+    }
+
+    @media (max-width: 340px) {
+      #contact a.email-link {
+        font-size: 0.68rem;
+        white-space: normal;
+      }
     }
 
     #contact a.email-link:hover { color: var(--sage); }
@@ -520,11 +531,13 @@
       .profiles { grid-template-columns: 1fr; }
       .two-col { grid-template-columns: 1fr; }
       .gallery { grid-template-columns: 1fr 1fr; }
+      .gallery img:nth-child(3) { display: none; }
       #familieopstellingen .content-grid { grid-template-columns: 1fr; }
       .details-grid { grid-template-columns: 1fr; }
       .jaargroep-box { padding: 2rem 1.5rem; }
       .review-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
+      #contact { padding: 4rem 1rem 5rem; }
 
       /* Hamburger menu */
       .nav-toggle { display: flex; }
@@ -603,7 +616,6 @@
 <section id="wie" style="background: var(--bg-alt);">
   <div class="container-wide">
     <p class="section-label">Wie zijn wij</p>
-    <h2>Anneke &amp; Margreet</h2>
 
     <div class="profiles">
       <div class="profile-card">
@@ -612,7 +624,7 @@
           <h3>Anneke</h3>
           <p class="role">Stembevrijder</p>
           <p>Ik ben Anneke. In 2016 ben ik afgestudeerd als stembevrijder bij Jan Kortie. Ik hou ervan om te zingen en te bewegen. Dit geeft mij een gevoel van vrijheid, geluk en verbondenheid.</p>
-          <p style="margin-top:1rem">Door stembevrijding ben ik mijzelf beter gaan leren kennen, heb ik mijzelf meer leren omarmen en kan ik mijn emoties makkelijker voelen en delen. Ik word er steeds vrijer en blijer van, meer weg.</p>
+          <p style="margin-top:1rem">Door stembevrijding ben ik mijzelf beter gaan leren kennen, heb ik mijzelf meer leren omarmen en kan ik mijn emoties makkelijker voelen en delen. Ik word er steeds vrijer en blijer van.</p>
           <p style="margin-top:1rem">Ik ging de opleiding doen voor mijn eigen ontwikkeling, ik had destijds nooit het gevoel te willen gaan werken met groepen. Tijdens een familieweekend is het toch begonnen. Ik stond met Margreet op een zondagochtend in een mistig weiland en begeleidde haar en mezelf in het voelen en het zingen van klanken. Dit was zo'n mooi moment. Het voelde zo één, zo verbonden. Daar is het zaadje geplant.</p>
           <p style="margin-top:1rem">Langzaam ontstond er een groep. Eerst van alleen bekende mensen, later ook met mensen die mij niet direct kenden. En elke keer is de verbinding weer gauw gelegd. Dat vind ik het mooie van stembevrijding. Maskers vallen af, verbindingen kunnen ontstaan.</p>
         </div>
@@ -640,16 +652,16 @@
 
     <div class="two-col" style="margin-top:0">
       <blockquote>
-        <strong>Anneke</strong>
-        In 2015, tijdens mijn opleiding tot stembevrijder, ben ik begonnen met het geven van jaargroepen stembevrijding. Ik heb dit (en doe dit nog steeds) met veel plezier en toewijding gedaan en ik voelde ook dat ik graag samen een groep wilde begeleiden in plaats van alleen. Bij collega stembevrijders had ik hierover soms een balletje opgegooid en er ontstond niks.<br><br>
-        En toen kwam Margreet met haar droom.<br><br>
-        Het samen met Margreet begeleiden van groepen geeft veel extra verdieping en verbinding voor de groep en zeker ook voor mezelf. Het samen voorbereiden en ook het evalueren achteraf, de herkenning, de lol, het delen. Dit alles geeft mij veel positieve energie.
-      </blockquote>
-      <blockquote>
         <strong>Margreet</strong>
         De samenwerking van Anneke en mij kwam op een mooie manier tot stand. Anneke gaf stembevrijding, dat sprak me zeer aan en vanaf het begin heb ik aan haar workshops en jaargroepen meegedaan. Het heeft me veel gebracht, het uiten op die manier van wat er in mij leeft was helend en fijn.<br><br>
         Op een gegeven moment had ik een droom waarin Anneke en ik samen werkten. Ik belde Anneke en zij was direct heel enthousiast om haar stembevrijding te combineren met mijn psychosomatiek.<br><br>
         We hebben de afgelopen jaren samen jaargroepen gegeven. Iedere keer worden we er zelf weer blij van. Het gaat gemakkelijk, we hebben plezier, het stroomt.
+      </blockquote>
+      <blockquote>
+        <strong>Anneke</strong>
+        In 2015, tijdens mijn opleiding tot stembevrijder, ben ik begonnen met het geven van jaargroepen stembevrijding. Ik heb dit (en doe dit nog steeds) met veel plezier en toewijding gedaan en ik voelde ook dat ik graag samen een groep wilde begeleiden in plaats van alleen. Bij collega stembevrijders had ik hierover soms een balletje opgegooid en er ontstond niks.<br><br>
+        En toen kwam Margreet met haar droom.<br><br>
+        Het samen met Margreet begeleiden van groepen geeft veel extra verdieping en verbinding voor de groep en zeker ook voor mezelf. Het samen voorbereiden en ook het evalueren achteraf, de herkenning, de lol, het delen. Dit alles geeft mij veel positieve energie.
       </blockquote>
     </div>
   </div>
@@ -830,11 +842,11 @@
     <div class="contact-grid">
       <div class="contact-card">
         <p class="label">Jaargroep</p>
-        <a class="email-link" href="mailto:margreetenannekedoenhetsamen@gmail.com">margreetenannekedoenhetsamen@gmail.com</a>
+        <a class="email-link" href="mailto:margreetenannekedoenhetsamen@gmail.com">margreetenannekedoenhetsamen<wbr>@gmail.com</a>
       </div>
       <div class="contact-card">
         <p class="label">Familieopstellingen</p>
-        <a class="email-link" href="mailto:elfrinkfamilieopstellingen@gmail.com">elfrinkfamilieopstellingen@gmail.com</a>
+        <a class="email-link" href="mailto:elfrinkfamilieopstellingen@gmail.com">elfrinkfamilieopstellingen<wbr>@gmail.com</a>
       </div>
     </div>
   </div>
